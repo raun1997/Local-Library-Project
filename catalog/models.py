@@ -30,7 +30,7 @@ class Genre(models.Model):
 		constraints = [
 		UniqueConstraint(
 			Lower('name'),
-			name="genre_name_case_insensitive_unique"),
+			name="genre_name_case_insensitive_unique",
 			violation_error_message="Genre already exists"
 			),
 		]
