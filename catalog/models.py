@@ -26,6 +26,15 @@ class Genre(models.Model):
 		"""Returns the url to access a particular genre instance."""
 		return reverse('genre-detail', args=[str(self.id)])
 
+	class Meta:
+		constraints = [
+		UniqueConstraint(
+			Lower('name'),
+			name="genre_name_case_insensitive_unique"),
+			violation_error_message="Genre already exists"
+			),
+		]
+
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200)
@@ -70,9 +79,3 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
-
-# class Meta:
-# 	constraints = [
-# 	UniqueConstraint(
-# 		Lower('name'),
-# 		name="genre_name_case_insensitive_unique")]
