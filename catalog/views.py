@@ -28,6 +28,14 @@ def books(request):
     }
     return render(request, "catalog/books.html", context=context)
 
+def book_details(request, pk):
+    book = Book.objects.get(pk=pk)
+    context = {
+        "book": book
+    }
+    return render(request, "catalog/book_details.html", context=context)
+
+
 def authors(request):
     authors = Author.objects.all()
     context = {
