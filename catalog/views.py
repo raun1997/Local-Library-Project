@@ -27,3 +27,10 @@ def books(request):
         "books": books
     }
     return render(request, "catalog/books.html", context=context)
+
+def authors(request):
+    authors = Author.objects.all()
+    context = {
+        "authors": authors
+    }
+    return render(request, "catalog/authors.html", context=context)
