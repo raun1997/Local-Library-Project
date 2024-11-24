@@ -19,13 +19,15 @@ from django.urls import path, include
 # Use static() to add URL mapping to serve static files during development (only)
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # use include() to add paths from the catalog app
     path('catalog/', include('catalog.urls')),
+    # add URL maps to redirect the base URL to our main app
+    path('', RedirectView.as_view(url="catalog/"), permanent=True)),
 ]
 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
