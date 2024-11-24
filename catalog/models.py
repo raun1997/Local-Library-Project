@@ -52,7 +52,7 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this book."""
         return reverse('book-detail', args=[str(self.id)])
-		
+
 class Author(models.Model):
     """Model representing an author."""
     first_name = models.CharField(max_length=100)
