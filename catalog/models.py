@@ -1,5 +1,8 @@
 # reverse() is used in get_absolute_url() to get URL for specified ID
-from django.urls import reverse 
+from django.urls import reverse
+
+# using the django models
+from django.db import models
 
 # Constrains field to unique values
 from django.db.models import UniqueConstraint
@@ -17,7 +20,7 @@ class Genre(models.Model):
 
 	def __str__(self):
 		"""String for representing Model object."""
-		return self.name 
+		return self.name
 
 	def get_absolute_url(self):
 		"""Returns the url to access a particular genre instance."""
