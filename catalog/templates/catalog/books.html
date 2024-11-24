@@ -4,8 +4,8 @@
 <p class="text-secondary fs-1">Books</p>
 <div class="row">
   {% for book in books %}
-    <div class="col-md-3">
-      <div class="card mb-2" style="width: 16rem;">
+    <div class="col-md-2">
+      <div class="card mb-2">
         {% if book.image %}
           <img class="card-img-top" src="{{ book.image.url }}" alt="">
         {% endif %}
@@ -15,7 +15,7 @@
           <!-- <p class="card-text">{{ book.summary }}</p> -->
           <!-- add a link to the project_detail.html page if the user clicks on "Read More" -->
           <a href="#" class="btn btn-success">
-            Issue
+            Details
           </a>
         </div>
       </div>
