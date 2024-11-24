@@ -26,7 +26,7 @@ urlpatterns = [
     # use include() to add paths from the catalog app
     path('catalog/', include('catalog.urls')),
     # add URL maps to redirect the base URL to our main app
-    path('', RedirectView.as_view(url="catalog/"), permanent=True),
+    path('', RedirectView.as_view(url="catalog/", permanent=True)),
 ]
 
 
