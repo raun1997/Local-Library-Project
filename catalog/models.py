@@ -26,8 +26,8 @@ class Genre(models.Model):
 		"""Returns the url to access a particular genre instance."""
 		return reverse('genre-detail', args=[str(self.id)])
 
-class Meta:
-	constraints = [
-	UniqueConstraint(
-		Lower('name'),
-		name="genre_name_case_insensitive_unique")]
+# class Meta:
+# 	constraints = [
+# 	UniqueConstraint(
+# 		Lower('name'),
+# 		name="genre_name_case_insensitive_unique")]
