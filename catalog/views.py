@@ -20,3 +20,10 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+def books(request):
+    books = Book.objects.all()
+    context = {
+        "books": books
+    }
+    return render(request, "catalog/books.html", context=context)
