@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # added our app here 
+    # added our app here
     'catalog.apps.CatalogConfig',
 ]
 
@@ -52,6 +52,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'locallibrary.urls'
+
+# collect all the images in an uploads/ folder and serve them with a media/URL
+MEDIA_ROOT = BASE_DIR / "uploads/"  # folder that stores the media files in our sytem
+MEDIA_URL = "media/"   # user facing URL for the media folder
 
 TEMPLATES = [
     {
