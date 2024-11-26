@@ -11,9 +11,10 @@ This the user-facing page at `catalog/authors` that shows all the authors listed
 
 This is the `catalog/books` page that shows all the book available in the library.
 
-![Screenshot 2024-11-25 130331](https://github.com/user-attachments/assets/a3f8fb7f-52ae-4ac3-a4c4-e57e337f7f9e)
+![image](https://github.com/user-attachments/assets/735e64cd-ad9a-4fba-8cee-405fd753b5bc)
 
-This is the `catalog/books/1` page that shows the details of the book "Looking For Alaska". The genre of the book, however, cannot be fetched from the backend. I will resolve soon.
+
+This is the `catalog/books/4` page that shows the details of the book "Breach: A Cyber Thriller".
 
 ![image](https://github.com/user-attachments/assets/ad19a095-d528-4425-97c8-162d6172e822)
 
