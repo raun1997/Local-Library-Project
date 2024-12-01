@@ -2,6 +2,7 @@
 
 {% block content %}
 <p class="text-secondary fs-1">{{ book.title }}</p>
+  <p><strong>Author: </strong>{{ book.author  }}</p>
   <p><strong>Genre: </strong>{{ book.genre.all|join:", "  }}</p>
   <p><strong>Synopsis: </strong>{{ book.summary }}</p>
   <p><strong>ISBN: </strong>{{ book.isbn }}</p>
