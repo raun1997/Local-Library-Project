@@ -42,3 +42,10 @@ def authors(request):
         "authors": authors
     }
     return render(request, "catalog/authors.html", context=context)
+
+def author_details(request, pk):
+    author = Author.objects.get(pk=pk)
+    context = {
+        "author": author
+    }
+    return render(request, "catalog/author_details.html", context=context)
