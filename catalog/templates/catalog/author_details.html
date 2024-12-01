@@ -1,5 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<p class="text-secondary fs-1">{{ author.first_name}} {{ author.last_name }}</p>
+  <p class="text-black fs-1">Author: {{ author.first_name}} {{ author.last_name }}</p>
+  <p class="text-black fs-2">Books </p>
+  <div class="row">
+    {% for book in books %}
+    <div>
+      <p>{{ book.title }}</p>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock %}

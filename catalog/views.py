@@ -45,7 +45,9 @@ def authors(request):
 
 def author_details(request, pk):
     author = Author.objects.get(pk=pk)
+    books = Book.objects.filter(author=author).values()
     context = {
-        "author": author
+        "author": author,
+        "books":books
     }
     return render(request, "catalog/author_details.html", context=context)
