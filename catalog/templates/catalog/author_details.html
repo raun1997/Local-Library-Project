@@ -6,7 +6,7 @@
   <div class="row">
     {% for book in books %}
     <div>
-      <p>{{ book.title }}</p>
+      <a href="#">{{ book.title }}</a>
       <p>{{ book.genre.all|join:", " }}</p>
       <p>{{ book.summary }}</p>
     </div>
