@@ -6,7 +6,7 @@
   <div class="row">
     {% for book in books %}
     <div>
-      <a href="#">{{ book.title }}</a>
+      <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
       <p>{{ book.genre.all|join:", " }}</p>
       <p>{{ book.summary }}</p>
     </div>

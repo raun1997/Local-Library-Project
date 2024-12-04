@@ -4,7 +4,7 @@
 <p class="text-secondary fs-1">Authors</p>
   <ul>
     {% for author in authors %}
-    <li><a href="{% url 'author_details' author.pk %}"style="text-decoration: none";>{{ author.last_name }} {{author.first_name}}</a></li>
+    <li><a href="{% url 'author-detail' author.pk %}"style="text-decoration: none";>{{ author.last_name }} {{author.first_name}}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}
