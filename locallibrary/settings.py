@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # added our app here
     'catalog.apps.CatalogConfig',
+    # django debug toolbar
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
