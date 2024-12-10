@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Book, Author
+from django.utils.timezone import now
 
 def index(request):
     """View function for home page of site."""
@@ -23,8 +24,10 @@ def index(request):
 
 def books(request):
     books = Book.objects.all()
+    time = now()
     context = {
-        "books": books
+        "books": books,
+        "time" : time,
     }
     return render(request, "catalog/books.html", context=context)
 
