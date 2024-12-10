@@ -1,60 +1,57 @@
-# reverse() is used in get_absolute_url() to get URL for specified ID
 from django.urls import reverse
-
-# using the django models
 from django.db import models
-
-# Constrains field to unique values
 from django.db.models import UniqueConstraint
-
-# Returns lower cased value of field
 from django.db.models.functions import Lower
+from django.utils.timezone import now
 
 class Genre(models.Model):
-	"""Model representation of a book genre."""
-	name = models.CharField(
-		max_length=200,
-		unique=True,
-		help_text="Enter a book genre"
-	)
+    """Model representation of a book genre."""
+    name = models.CharField(
+        max_length=200,
+        unique=True,
+        help_text="Enter a book genre"
+    )
 
-	def __str__(self):
-		"""String for representing Model object."""
-		return self.name
+    def __str__(self):
+        """String for representing Model object."""
+        return self.name
 
-	def get_absolute_url(self):
-		"""Returns the url to access a particular genre instance."""
-		return reverse('genre-detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        """Returns the url to access a particular genre instance."""
+        return reverse('genre-detail', args=[str(self.id)])
 
-	class Meta:
-		constraints = [
-		UniqueConstraint(
-			Lower('name'),
-			name="genre_name_case_insensitive_unique",
-			violation_error_message="Genre already exists"
-			),
-		]
+    class Meta:
+        constraints = [
+            UniqueConstraint(
+                Lower('name'),
+                name="genre_name_case_insensitive_unique",
+                violation_error_message="Genre already exists"
+            ),
+        ]
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
+    added_at = models.DateTimeField(default=now)
     title = models.CharField(max_length=200)
     author = models.ForeignKey('Author', on_delete=models.RESTRICT, null=True)
     # Foreign Key used because book can only have one author, but authors can have multiple books.
     # Author as a string rather than object because it hasn't been declared yet in file.
 
     summary = models.TextField(
-        max_length=1000, help_text="Enter a brief description of the book")
-    isbn = models.CharField('ISBN', max_length=13,
-                            unique=True,
-                            help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn'
-                                      '">ISBN number</a>')
+        max_length=1000, help_text="Enter a brief description of the book"
+    )
+    isbn = models.CharField(
+        'ISBN',
+        max_length=13,
+        unique=True,
+        help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>'
+    )
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    genre = models.ManyToManyField(
-        Genre, help_text="Select a genre for this book")
+    genre = models.ManyToManyField(Genre, help_text="Select a genre for this book")
 
-	 # define a FileField with a subfolder named project_images/.
+    # Define a FileField with a subfolder named book_media/.
     # That’s where Django should store the images when you upload them.
     image = models.FileField(upload_to="book_media/", blank=True)
 
